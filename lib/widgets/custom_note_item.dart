@@ -23,9 +23,12 @@ class CustomNoteItem extends StatelessWidget {
                 style: TextStyle(color: Colors.black, fontSize: 28),
               ),
             ),
-            subtitle: Text(
-              'Build your career with nada',
-              style: TextStyle(color: Color(0xffA47C38), fontSize: 20),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: Text(
+                'Build your career with nada',
+                style: TextStyle(color: Color(0xffA47C38), fontSize: 20),
+              ),
             ),
             trailing: IconButton(
               onPressed: () {},
