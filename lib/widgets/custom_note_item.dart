@@ -27,7 +27,7 @@ class CustomNoteItem extends StatelessWidget {
               padding: const EdgeInsets.only(right: 8),
               child: Text(
                 'Build your career with nada',
-                style: TextStyle(color: Color(0xffA47C38), fontSize: 20),
+                style: TextStyle(color: Color(0xffA47C38), fontSize: 18),
               ),
             ),
             trailing: IconButton(
