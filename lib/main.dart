@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:notes_app2/constants.dart';
 import 'package:notes_app2/views/notes_view.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter(); //initialize hive(hive flutter)
+  await Hive.openBox(kNotesBox);
   runApp(const NotesApp());
 }
 
+//هفتح البوكس الي هخزن فيه الداتا
 class NotesApp extends StatelessWidget {
   const NotesApp({super.key});
 
