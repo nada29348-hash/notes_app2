@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app2/constants.dart';
+import 'package:notes_app2/models/note_model.dart';
 import 'package:notes_app2/views/notes_view.dart';
 
 void main() async {
   await Hive.initFlutter(); //initialize hive(hive flutter)
   await Hive.openBox(kNotesBox);
+  Hive.registerAdapter(
+    NoteModelAdapter(),
+  ); //هنا بقول ل هايف انك هتتعامل مع نوت مودل فلازم تعمل ريجيستر ل نوت تايب ادابتور
   runApp(const NotesApp());
 }
 
