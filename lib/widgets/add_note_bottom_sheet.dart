@@ -13,6 +13,7 @@ class AddNoteBottomSheet extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: SingleChildScrollView(
         child: BlocConsumer<AddNoteCubit, AddNoteStates>(
+          //integrate cubit
           listener: (context, state) {
             if (state is AddNoteSuccess) {
               Navigator.pop(context);
