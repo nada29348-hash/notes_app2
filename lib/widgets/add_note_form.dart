@@ -44,8 +44,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subtitle = value;
             },
           ),
+          SizedBox(height: 30),
           ColorListView(),
-          SizedBox(height: 50),
+          SizedBox(height: 30),
           BlocBuilder<AddNoteCubit, AddNoteStates>(
             //عشان بعمل ريبلد لل بوتون
             builder: (context, state) {
