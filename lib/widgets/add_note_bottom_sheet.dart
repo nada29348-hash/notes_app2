@@ -13,25 +13,22 @@ class AddNoteBottomSheet extends StatelessWidget {
       //provide cubit
       //حطيته هنا لانه ملوش داعي انه يكون في ماتريل اب لان انا هاكسس كيوبت هنا وبس فكدا احسن عشان مستهلكش ريسورسس كتير
       create: (context) => AddNoteCubit(),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: BlocConsumer<AddNoteCubit, AddNoteStates>(
-          //integrate cubit
-          listener: (context, state) {
-            if (state is AddNoteSuccess) {
-              Navigator.pop(context);
-            }
-            if (state is AddNoteFailure) {
-              print('Failed ${state.errorMessage}');
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is AddNoteLoading ? true : false,
-              child: SingleChildScrollView(child: AddNoteForm()),
-            );
-          },
-        ),
+      child: BlocConsumer<AddNoteCubit, AddNoteStates>(
+        //integrate cubit
+        listener: (context, state) {
+          if (state is AddNoteSuccess) {
+            Navigator.pop(context);
+          }
+          if (state is AddNoteFailure) {
+            print('Failed ${state.errorMessage}');
+          }
+        },
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: SingleChildScrollView(child: AddNoteForm()),
+          );
+        },
       ),
     );
   }
