@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app2/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app2/cubits/add_note_cubit/add_note_states.dart';
 import 'package:notes_app2/models/note_model.dart';
+import 'package:notes_app2/widgets/colors_list_view.dart';
 import 'package:notes_app2/widgets/custom_button.dart';
 import 'package:notes_app2/widgets/custom_text_field.dart';
 import 'package:intl/intl.dart';
@@ -43,6 +44,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subtitle = value;
             },
           ),
+          ColorListView(),
           SizedBox(height: 50),
           BlocBuilder<AddNoteCubit, AddNoteStates>(
             //عشان بعمل ريبلد لل بوتون

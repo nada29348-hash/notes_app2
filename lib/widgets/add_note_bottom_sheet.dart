@@ -20,7 +20,7 @@ class AddNoteBottomSheet extends StatelessWidget {
           if (state is AddNoteSuccess) {
             BlocProvider.of<NotesCubitCubit>(
               context,
-            ).fetchAllNotes(); //restart note
+            ).fetchAllNotes(); //refresh note list
             Navigator.pop(context);
           }
           if (state is AddNoteFailure) {

@@ -5,13 +5,13 @@ part 'note_model.g.dart';
 class NoteModel extends HiveObject {
   //generate type adapter
   @HiveField(0)
-  final String title;
+  String title;
   @HiveField(1)
-  final String subtitle;
+  String subtitle;
   @HiveField(2)
   final String date;
   @HiveField(3)
-  final int color; //   لو عايزه اخزن الحاجه هنا ك اوبجيكت يبقي لازم اكريتلها تايب ادابتور يعني مثلا لو اللون عايزه اقول انه من نوع color يبقي لازم انشأ له تايب ادابتور
+  int color; //   لو عايزه اخزن الحاجه هنا ك اوبجيكت يبقي لازم اكريتلها تايب ادابتور يعني مثلا لو اللون عايزه اقول انه من نوع color يبقي لازم انشأ له تايب ادابتور
   //فعشان اريح نفسي من دا خليته اي نوع primitive
   NoteModel({
     required this.title,

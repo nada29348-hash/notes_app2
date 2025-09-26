@@ -16,7 +16,7 @@ class CustomNoteItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return EditNoteView();
+              return EditNoteView(note: note);
             },
           ),
         );
@@ -53,7 +53,7 @@ class CustomNoteItem extends StatelessWidget {
                   note.delete();
                   BlocProvider.of<NotesCubitCubit>(
                     context,
-                  ).fetchAllNotes(); //restart note
+                  ).fetchAllNotes(); //refresh notes list
                 },
                 icon: Icon(
                   FontAwesomeIcons.trash,
