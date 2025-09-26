@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app2/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app2/cubits/add_note_cubit/add_note_states.dart';
 import 'package:notes_app2/widgets/add_note_form.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
@@ -14,6 +13,7 @@ class AddNoteBottomSheet extends StatelessWidget {
       //حطيته هنا لانه ملوش داعي انه يكون في ماتريل اب لان انا هاكسس كيوبت هنا وبس فكدا احسن عشان مستهلكش ريسورسس كتير
       create: (context) => AddNoteCubit(),
       child: BlocConsumer<AddNoteCubit, AddNoteStates>(
+        //هنا ممكن استخدم بلوك ليسنر عشان مش هعمل ريبلد لل شيت هعمل بس للبوتون
         //integrate cubit
         listener: (context, state) {
           if (state is AddNoteSuccess) {
@@ -24,9 +24,20 @@ class AddNoteBottomSheet extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: SingleChildScrollView(child: AddNoteForm()),
+          return AbsorbPointer(
+            absorbing: state is AddNoteLoading
+                ? true
+                : false, //هنا بشوف لو لود بخليه ميعرفش يكتب في تيكست فيلد
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 16,
+                right: 16,
+                bottom: MediaQuery.of(
+                  context,
+                ).viewInsets.bottom, //هنل في بادنج من تحت ارتفاعه نفس الكيبورد
+              ),
+              child: SingleChildScrollView(child: AddNoteForm()),
+            ),
           );
         },
       ),

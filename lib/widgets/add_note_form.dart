@@ -44,6 +44,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           SizedBox(height: 50),
           BlocBuilder<AddNoteCubit, AddNoteStates>(
+            //عشان بعمل ريبلد لل بوتون
             builder: (context, state) {
               return CustomButton(
                 isLoading: state is AddNoteLoading ? true : false,
